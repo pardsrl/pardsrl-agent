@@ -20,7 +20,6 @@
   "dependencies": {
     "debug": "^3.1.0",
     "defaults": "^1.0.3",
-    "machine-uuid-sync": "^1.0.9",
     "mqtt": "^2.16.0",
     "os": "^0.1.1",
     "uuid": "^3.2.1"

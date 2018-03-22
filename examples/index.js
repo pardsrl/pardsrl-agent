@@ -1,10 +1,10 @@
 const PardAgent = require('../')
-const uuid = require("machine-uuid-sync")();
+const uuid = require("uuid");
 
 
 const agent = new PardAgent({
   nombre: 'pardsl agent',
-  uuid: process.env.UUID || uuid,
+  uuid: process.env.UUID || uuid.v4(),
   interval: 1000,
   mqtt: {
     host: 'mqtt://10.0.0.7'
