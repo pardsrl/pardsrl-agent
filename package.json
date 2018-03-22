@@ -1,0 +1,28 @@
+{
+  "name": "pardsrl-agent",
+  "version": "1.0.0",
+  "description": "Pardsrl iot plattform - client Agent",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "example": "DEBUG=pardsrl:* UUID=FF709446-EC6C-5C41-A6EA-F1CD5CCF4D9F node examples/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pardsrl/pardsrl-agent.git"
+  },
+  "author": "Santiago Semhan <santiagosemhan@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pardsrl/pardsrl-agent/issues"
+  },
+  "homepage": "https://github.com/pardsrl/pardsrl-agent#readme",
+  "dependencies": {
+    "debug": "^3.1.0",
+    "defaults": "^1.0.3",
+    "machine-uuid-sync": "^1.0.9",
+    "mqtt": "^2.16.0",
+    "os": "^0.1.1",
+    "uuid": "^3.2.1"
+  }
+}
