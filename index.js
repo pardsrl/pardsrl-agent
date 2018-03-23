@@ -78,17 +78,16 @@ class PardAgent extends EventEmitter {
                 value
               }
 
+              //if provided value its an object, it will be assigned to
+              //original metric object
               if (value && typeof value == 'object'){
-                  metricObj = Object.assign({
-                    type: metric,
-                    value 
-                  },value)
-              }else{
-                  message.metrics.push({
-                    type: metric,
-                    value 
-                  })
+                metricObj = Object.assign({
+                  type: metric,
+                  value 
+                },value)
               }
+
+             message.metrics.push(metricObj)
             }
 
             debug('Sending', message)
