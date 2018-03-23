@@ -71,10 +71,24 @@ class PardAgent extends EventEmitter {
                 fn = util.promisify(fn)
               }
 
-              message.metrics.push({
+              let value = await Promise.resolve(fn())
+
+              let metricObj = {
                 type: metric,
-                value: await Promise.resolve(fn())
-              })
+                value
+              }
+
+              if (value && typeof value == 'object'){
+                  metricObj = Object.assign({
+                    type: metric,
+                    value 
+                  },value)
+              }else{
+                  message.metrics.push({
+                    type: metric,
+                    value 
+                  })
+              }
             }
 
             debug('Sending', message)
