@@ -116,6 +116,8 @@ class PardAgent extends EventEmitter {
       })
 
       this._client.on('error', () => this.disconnect())
+
+      this._client.on('reconnect', () => this.emit('reconnecting'))
     }
   }
 
