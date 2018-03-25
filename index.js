@@ -10,8 +10,8 @@ const EventEmitter = require('events')
 const { parsePayload } = require('./utils')
 
 const options = {
-  name: 'untitled',
-  username: 'pardsrl',
+  nombre: 'guest',
+  uuid: '0000-0000-0000-0000',
   interval: 5000,
   mqtt: {
     host: 'mqtt://localhost'
