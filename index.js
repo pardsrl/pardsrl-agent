@@ -95,11 +95,12 @@ class PardAgent extends EventEmitter {
             this._client.publish('agent/message', JSON.stringify(message))
             this.emit('message', message)
 
-            this._started && setTimeout(this._report,opts.interval)
+            this._timer = setTimeout(this._report,opts.interval)
           }
         }
 
-        this._report()
+        // if report function is not fired, it will be called
+        !this._timer && this._report()
       })
 
       this._client.on('message', (topic, payload) => {
@@ -132,6 +133,7 @@ class PardAgent extends EventEmitter {
   disconnect () {
     if (this._started) {
       this._started = false
+      this._timer && clearTimeout(this._timer)
       this.emit('disconnected', this._agentId)
       this._client.end()
     }
