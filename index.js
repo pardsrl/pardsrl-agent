@@ -10,7 +10,6 @@ const EventEmitter = require('events')
 const { parsePayload } = require('./utils')
 
 const options = {
-  nombre: 'guest',
   uuid: '0000-0000-0000-0000',
   interval: 5000,
   mqtt: {
@@ -58,7 +57,6 @@ class PardAgent extends EventEmitter {
             let message = {
               agent: {
                 uuid: this._agentId,
-                nombre: opts.nombre,
                 hostname: os.hostname() || 'localhost',
                 pid: process.pid
               },

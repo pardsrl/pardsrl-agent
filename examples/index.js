@@ -3,7 +3,6 @@ const uuid = require("uuid");
 
 
 const agent = new PardAgent({
-  nombre: 'pardsl agent',
   uuid: process.env.UUID || uuid.v4(),
   interval: 1000,
   mqtt: {
