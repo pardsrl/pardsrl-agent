@@ -91,7 +91,9 @@ class PardAgent extends EventEmitter {
             debug('Sending', message)
 
             this._client.publish('agent/message', JSON.stringify(message))
-            this.emit('message', message)
+            
+            // emit message event asap
+            process.nextTick( () => this.emit('message', message))
 
             this._timer = setTimeout(this._report,opts.interval)
           }
