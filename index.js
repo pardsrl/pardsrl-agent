@@ -126,8 +126,12 @@ class PardAgent extends EventEmitter {
     }
   }
 
-  setInterval(interval){
-    this._options.interval = interval
+  setInterval(interval){    
+    process.nextTick(() => {
+      clearTimeout(this._timer)
+      this._options.interval = interval
+      this._report && this._report()
+    })
   }
 
   disconnect () {
